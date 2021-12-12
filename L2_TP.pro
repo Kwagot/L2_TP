@@ -6,9 +6,12 @@ CONFIG -= qt
 SOURCES += \
         aeroflot.cpp \
         main.cpp \
+        menu.cpp \
         planecontainer.cpp \
-        task2.cpp
+        task.cpp
 
 HEADERS += \
     aeroflot.h \
-    planecontainer.h
+    menu.h \
+    planecontainer.h \
+    task.h

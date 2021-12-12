@@ -19,7 +19,7 @@ class PlaneContainer {
 
     private:
 
-        char sort_type;
+        char sort_type = 'i';
 
         // sort types
         // i -> id

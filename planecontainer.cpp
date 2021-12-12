@@ -46,6 +46,7 @@ void PlaneContainer::resort() {
     bool flag = true;
     bool found;
     int max_pos = size;
+    AEROFLOT tmp;
     while (flag || max_pos > 0) {
         flag = false;
         for (int i = 0; i < max_pos-1; ++i) {
@@ -56,18 +57,20 @@ void PlaneContainer::resort() {
                     break;
                 }
                 case 'd': {
-                    if (letter_is_closer_to_start(container[i]->get_destination(),container[i+1]->get_destination())) found = true;
+                    if (!letter_is_closer_to_start(container[i]->get_destination(),container[i+1]->get_destination())) found = true;
                     break;
                 }
                 case 't': {
-                    if (letter_is_closer_to_start(container[i]->get_type(),container[i+1]->get_type())) found = true;
+                    if (!letter_is_closer_to_start(container[i]->get_type(),container[i+1]->get_type())) found = true;
                     break;
                 }
             }
 
             if (found) {
                 flag = true;
+                tmp = *container[i];
                 *container[i] = *container[i+1];
+                *container[i+1] = tmp;
             }
 
         }
